@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PlayShifu Home Page Clone
 
-## Getting Started
+This project replicates the PlayShifu Home Page design using modern web technologies.
+<img width="1440" alt="Screenshot 2025-04-14 at 8 43 09 AM" src="https://github.com/user-attachments/assets/5d6bdc5f-3816-47c7-b84e-533801a06f25" />
 
-First, run the development server:
+## 🛠 Tech Stack
+
+- **Frontend:** Next.js, Tailwind CSS (or CSS Modules)
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (with Mongoose)
+- **API:** REST API to fetch product data dynamically
+<img width="1440" alt="Screenshot 2025-04-14 at 8 43 35 AM" src="https://github.com/user-attachments/assets/915d6eca-c1b8-47d7-83d6-27fb97e31799" />
+
+## 📱 Features
+
+- Responsive design (desktop and mobile)
+- Dynamic data fetching from backend
+- MongoDB used to store product data
+- Fully structured layout as per provided design PDF
+<img width="1440" alt="Screenshot 2025-04-14 at 8 43 24 AM" src="https://github.com/user-attachments/assets/60a56972-1e36-4898-b5cd-7276f5aaa921" />
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/shubham51919/Playshifu.git
+cd playshifu
