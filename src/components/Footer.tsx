@@ -31,14 +31,14 @@ export default function Footer() {
                     <div className="col-span-1">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Join the PlayShifu Club</h3>
                         <p className="text-gray-600 mb-4">viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis</p>
-                        <button className="bg-purple-700 text-white rounded-full px-6 py-2 font-medium">Join the club</button>
+                        <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Join the club</button>
 
                         <div className="mt-10">
                             <h3 className="text-lg font-medium text-gray-800 mb-4">Need Help in something</h3>
                             <p className="text-gray-600 mb-4">
                                 viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis
                             </p>
-                            <button className="bg-purple-700 text-white rounded-full px-6 py-2 font-medium">Contact us</button>
+                            <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Contact us</button>
                         </div>
                     </div>
 
@@ -47,42 +47,42 @@ export default function Footer() {
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Shop by category</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Problem Solving
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Geography
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Language & Numbers
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     STEM
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Coding
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Animals & Dinosaurs
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Space and Music
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Packs and Combos
                                 </Link>
                             </li>
@@ -94,17 +94,17 @@ export default function Footer() {
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Support</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Device Compatibility
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     FAQ
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Contact us
                                 </Link>
                             </li>
@@ -116,17 +116,17 @@ export default function Footer() {
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Parents & Educators</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Free E- Storybooks
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Parent Hub
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Shifu in Classrooms
                                 </Link>
                             </li>
@@ -139,27 +139,27 @@ export default function Footer() {
                             <h3 className="text-lg font-medium text-gray-800 mb-4">Blog</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Creative Hub
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Newscast
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Spotlight
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Technology
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         PlayShifu Digest
                                     </Link>
                                 </li>
@@ -171,22 +171,22 @@ export default function Footer() {
                             <h3 className="text-lg font-medium text-gray-800 mb-4">About us</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Company
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Press
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Contact
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="text-gray-600 hover:text-purple-700">
+                                    <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Careers
                                     </Link>
                                 </li>
@@ -207,7 +207,7 @@ export default function Footer() {
                                 <p className="text-gray-600 mb-4">
                                     viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis
                                 </p>
-                                <button className="bg-purple-700 text-white rounded-full px-6 py-2 font-medium">Join the club</button>
+                                <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Join the club</button>
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,7 @@ export default function Footer() {
                                 <p className="text-gray-600 mb-4">
                                     viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis
                                 </p>
-                                <button className="bg-purple-700 text-white rounded-full px-6 py-2 font-medium">Contact Us</button>
+                                <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Contact Us</button>
                             </div>
                         </div>
                     </div>
@@ -416,8 +416,8 @@ export default function Footer() {
                 {/* Social Media and Payment Methods - shared between desktop and mobile */}
                 <div className="mt-12 border-t border-gray-200 pt-8">
                     <div className="flex flex-col md:flex-row md:justify-between">
-                        <div className="mb-6 md:mb-0">
-                            <h4 className="text-lg font-medium text-gray-800 mb-4">Connect with us</h4>
+                        <div className="flex items-center gap-4">
+                            <h4 className="text-lg font-medium text-gray-800 ">Connect with us</h4>
                             <div className="flex space-x-4">
                                 <Link href="#" aria-label="Facebook">
                                     <div className="w-6 h-6">

@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
                     {product.category && (
                         <div className="text-sm text-gray-600">
                             Category:{" "}
-                            <Link href={`/category/${product.category._id}`} className="text-purple-700 hover:underline">
+                            <Link href={`/category/${product.category._id}`} className="text-[#822382] hover:underline">
                                 {product.category.name}
                             </Link>
                         </div>
@@ -77,7 +77,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
                     {product.ageGroup && (
                         <div className="text-sm text-gray-600">
                             Age Group:{" "}
-                            <Link href={`/age/${product.ageGroup._id}`} className="text-purple-700 hover:underline">
+                            <Link href={`/age/${product.ageGroup._id}`} className="text-[#822382] hover:underline">
                                 {product.ageGroup.age} yrs
                             </Link>
                         </div>

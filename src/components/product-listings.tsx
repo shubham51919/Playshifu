@@ -100,7 +100,7 @@ export default function ProductListings({
     return (
         <section className="px-4 py-5">
             <div className="flex items-center justify-between mb-3">
-                <h2 className="text-lg font-semibold">{title}</h2>
+                <h2 className="text-lg font-semibold ml-5">{title}</h2>
                 <Link href={categoryLink} className="text-sm text-gray-500 flex items-center">
                     See all <ChevronRight className="h-4 w-4" />
                 </Link>

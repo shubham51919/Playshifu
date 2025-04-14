@@ -90,12 +90,12 @@ export default async function Home() {
                 <Link
                   href={item.href}
                   key={item.name}
-                  className="group flex items-center gap-2 cursor-pointer transition-colors duration-200 hover:text-purple-600"
+                  className="group flex items-center gap-2 cursor-pointer transition-colors duration-200 hover:text-[#822382]"
                 >
                   <item.icon
                     className="text-[#822382] h-6 w-6 transition-transform duration-200 group-hover:scale-110"
                   />
-                  <div className="text-[#822382] transition-colors duration-200 group-hover:text-purple-600">
+                  <div className="text-[#822382] transition-colors duration-200 group-hover:text-[#822382]">
                     {item.name}
                   </div>
                 </Link>
@@ -164,7 +164,7 @@ export default async function Home() {
 
         {/* Award Section */}
         <section className="px-4 py-5">
-          <h2 className="font-bold text-lg mb-3">Multi Award winning toys</h2>
+          <h2 className="font-bold text-lg mb-3 ml-4">Multi Award winning toys</h2>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {awards.map((award, i) => (
               <div key={award._id || i} className="flex flex-col items-center">
@@ -180,10 +180,10 @@ export default async function Home() {
         {/* Shop by Age */}
         <section className="px-4 py-3 bg-white">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-bold text-lg">Shop by age</h2>
+            <h2 className="font-bold text-lg ml-4">Shop by age</h2>
 
           </div>
-          <div className="flex gap-2 overflow-x-auto p-3 scrollbar-hide border-b border-t">
+          <div className="flex gap-2 overflow-x-auto p-3 scrollbar-hide border-b border-t ml-4">
             {ageGroups.map((ageGroup) => (
               <AgeCategory
                 key={ageGroup._id}
@@ -204,12 +204,12 @@ export default async function Home() {
         {/* Shop by Category */}
         <section className="px-4 py-3 bg-gray-50">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-bold text-lg">Shop by Category</h2>
+            <h2 className="font-bold text-lg ml-4">Shop by Category</h2>
             <Link href="/categories" className="text-sm text-gray-500 flex items-center">
               View All <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="flex gap-2 overflow-x-auto p-3 scrollbar-hide border-b border-t">
+          <div className="flex gap-2 overflow-x-auto p-3 scrollbar-hide border-b border-t ml-4">
             {ageGroups.map((ageGroup) => (
               <AgeCategory
                 key={ageGroup._id}
@@ -250,7 +250,7 @@ export default async function Home() {
 
         {/* Deals and Discounts */}
         <section>
-          <ProductListings products={products} title="Special Offers" categoryLink="/products" />
+          <ProductListings products={products} title="" categoryLink="/products" />
         </section>
 
         {/* Testimonials */}
@@ -264,19 +264,21 @@ export default async function Home() {
         </section>
 
         {/* Partners */}
-        <section className="px-4 py-5 bg-[#FFDD00] w-full">
-          <p className="text-sm font-medium mb-3">Also available at</p>
-          <div className="flex justify-between items-center">
-            {partners.map((partner, index) => (
-              <Image
-                key={partner._id || index}
-                src={partner.image || "/placeholder.svg"}
-                alt={partner.name}
-                className="border border-black border-[1.5px] rounded-lg"
-                width={250}
-                height={320}
-              />
-            ))}
+        <section className="px-12 py-5 bg-[#FFDD00] w-full">
+          <p className="text-xl font-medium mb-3 ml-4">Also available at</p>
+          <div className="overflow-x-auto">
+            <div className="flex flex-nowrap justify-between gap-4 items-center">
+              {partners.map((partner, index) => (
+                <Image
+                  key={partner._id || index}
+                  src={partner.image || "/placeholder.svg"}
+                  alt={partner.name}
+                  className="border border-black border-[1.5px] rounded-lg flex-shrink-0"
+                  width={230}
+                  height={180}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
