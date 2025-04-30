@@ -62,20 +62,24 @@ export default function ToyShopCarousel({ slides = [] }: ToyShopCarouselProps) {
     return (
         <div className="flex flex-col gap-2">
             {/* Carousel slider */}
-            <div className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden rounded-lg">
+            <div className="relative h-[25vh] sm:h-[25vh] md:h-[40vh] lg:h-[55vh] overflow-hidden ">
                 {bannerSlides.map((slide, index) => (
                     <div
-                        key={slide._id}
-                        style={{ backgroundImage: `url(${slide.image})`, backgroundPosition: "center", backgroundSize: "cover" }}
-                        className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out ${currentSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
-                            } ${slide.color} px-4 py-3 flex items-center`}
+                        key={slide._id || index}
+                        className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out 
+                       ${currentSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"}
+                       ${slide.color} flex items-center`}
                     >
-                        {/* Content can be added here if needed */}
+                        <img
+                            src={slide.image}
+                            alt={`Slide ${index + 1}`}
+                            className="w-full h-full cover "
+                        />
                     </div>
                 ))}
 
                 {/* Navigation buttons */}
-                <button
+                {/* <button
                     onClick={prevSlide}
                     className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full hover:bg-opacity-100 transition-all"
                     aria-label="Previous slide"
@@ -88,16 +92,16 @@ export default function ToyShopCarousel({ slides = [] }: ToyShopCarouselProps) {
                     aria-label="Next slide"
                 >
                     <ChevronRight size={16} className="sm:w-5 sm:h-5" />
-                </button>
+                </button> */}
             </div>
 
             {/* Indicator dots */}
-            <div className="flex justify-center space-x-1 sm:space-x-2 mt-1">
+            <div className="flex justify-center space-x-1 sm:space-x-2 md:mt-6 mt-1 md:gap-2 gap-1">
                 {bannerSlides.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`h-1.5 sm:h-2 rounded-full transition-all ${currentSlide === index ? "bg-[#822382] w-2 sm:w-2" : " border border-[#822382] w-1.5 sm:w-2"
+                        className={`cursor-pointer rounded-full transition-all ${currentSlide === index ? "md:h-2.5 bg-[#822382] md:w-2.5 h-2 w-2" : "md:h-2.5 border border-[#822382] md:w-2.5 w-2 h-2"
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />

@@ -11,7 +11,7 @@ export default async function AgeGroupPage({ params }: { params: { slug: string 
   if (!ageGroup) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold">Age group not found</h1>
+        <h1 className="text-2xl font-medium">Age group not found</h1>
         <Link href="/" className="text-blue-500 hover:underline flex items-center mt-4">
           <ChevronLeft className="h-4 w-4 mr-1" /> Back to home
         </Link>
@@ -29,7 +29,7 @@ export default async function AgeGroupPage({ params }: { params: { slug: string 
         <ChevronLeft className="h-4 w-4 mr-1" /> Back to home
       </Link>
 
-      <h1 className="text-3xl font-bold mb-6">Toys for {ageGroup.age} years</h1>
+      <h1 className="text-3xl font-medium mb-6">Toys for {ageGroup.age} years</h1>
       <p className="text-gray-600 mb-8">
         Discover our collection of age-appropriate toys designed specifically for children aged {ageGroup.age} years.
       </p>

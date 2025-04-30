@@ -34,39 +34,34 @@ export default function ProductListings({
     title = "",
     categoryLink = "/products",
 }: ProductListingsProps) {
-    const [scrollPosition, setScrollPosition] = useState(0)
-    const [maxScroll, setMaxScroll] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [isMobile, setIsMobile] = useState(false)
     const [visibleCards, setVisibleCards] = useState(4)
-    const [cardWidth, setCardWidth] = useState(0)
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+    const [scrollLeft, setScrollLeft] = useState(0)
     const containerRef = useRef<HTMLDivElement>(null)
 
-    // Calculate visible cards based on screen size
+    // Ensure we have enough products for the carousel to work properly
+    const extendedProducts = products.length > 0
+        ? [...products, ...products, ...products] // Triple the products array to ensure circular scrolling
+        : []
+
     useEffect(() => {
         const handleResize = () => {
             if (typeof window !== "undefined") {
                 const width = window.innerWidth
-                if (width < 640) {
-                    // mobile
-                    setVisibleCards(1)
+                const mobile = width < 640
+                setIsMobile(mobile)
+
+                if (mobile) {
+                    setVisibleCards(1.5) // Show 1.5 cards on mobile
                 } else if (width < 768) {
-                    // small tablets
                     setVisibleCards(2)
                 } else if (width < 1024) {
-                    // tablets
                     setVisibleCards(3)
                 } else {
-                    // laptops and bigger
                     setVisibleCards(4)
-                }
-
-                if (containerRef.current) {
-                    const containerWidth = containerRef.current.clientWidth
-                    const calculatedCardWidth = containerWidth / visibleCards
-                    setCardWidth(calculatedCardWidth)
-
-                    // Calculate max scroll distance
-                    const totalScrollWidth = calculatedCardWidth * products.length
-                    setMaxScroll(Math.max(0, totalScrollWidth - containerWidth))
                 }
             }
         }
@@ -77,32 +72,112 @@ export default function ProductListings({
         return () => {
             window.removeEventListener("resize", handleResize)
         }
-    }, [products.length, visibleCards])
+    }, [])
 
-    const scrollNext = () => {
-        const newPosition = Math.min(scrollPosition + cardWidth, maxScroll)
-        setScrollPosition(newPosition)
+    // Get the actual products to display based on current index
+    const getVisibleProducts = () => {
+        if (products.length === 0) return []
+
+        // Adjust the display window based on the current index
+        const displayCount = Math.ceil(visibleCards) + 2 // Add buffer cards
+        const startIdx = ((currentIndex % products.length) + products.length) % products.length
+
+        // Create a window of products that wraps around if needed
+        let visibleProducts = []
+        for (let i = 0; i < displayCount; i++) {
+            const idx = (startIdx + i) % products.length
+            visibleProducts.push(products[idx])
+        }
+
+        return visibleProducts
     }
 
-    const scrollPrev = () => {
-        const newPosition = Math.max(scrollPosition - cardWidth, 0)
-        setScrollPosition(newPosition)
+    const navigateNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length)
     }
 
-    const showLeftArrow = scrollPosition > 0
-    const showRightArrow = scrollPosition < maxScroll && products.length > visibleCards
+    const navigatePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + products.length) % products.length)
+    }
 
-    // If no products, show a placeholder or return null
+    // Touch/mouse event handlers for mobile sliding
+    const handleMouseDown = (e) => {
+        if (!isMobile || !containerRef.current) return
+
+        setIsDragging(true)
+        setStartX(e.pageX - containerRef.current.offsetLeft)
+        setScrollLeft(containerRef.current.scrollLeft)
+    }
+
+    const handleTouchStart = (e) => {
+        if (!isMobile || !containerRef.current) return
+
+        setIsDragging(true)
+        setStartX(e.touches[0].pageX - containerRef.current.offsetLeft)
+        setScrollLeft(containerRef.current.scrollLeft)
+    }
+
+    const handleMouseMove = (e) => {
+        if (!isDragging || !isMobile || !containerRef.current) return
+
+        e.preventDefault()
+        const x = e.pageX - containerRef.current.offsetLeft
+        const walk = (x - startX) * 2 // Adjust scrolling speed
+        containerRef.current.scrollLeft = scrollLeft - walk
+    }
+
+    const handleTouchMove = (e) => {
+        if (!isDragging || !isMobile || !containerRef.current) return
+
+        const x = e.touches[0].pageX - containerRef.current.offsetLeft
+        const walk = (x - startX) * 2
+        containerRef.current.scrollLeft = scrollLeft - walk
+    }
+
+    const handleDragEnd = () => {
+        if (!isMobile || !containerRef.current) return
+
+        setIsDragging(false)
+
+        // Snap to nearest card after sliding
+        if (containerRef.current) {
+            const cardWidth = containerRef.current.clientWidth / visibleCards
+            const scrollPosition = containerRef.current.scrollLeft
+            const cardIndex = Math.round(scrollPosition / cardWidth)
+
+            // Smooth scroll to the nearest card
+            containerRef.current.scrollTo({
+                left: cardIndex * cardWidth,
+                behavior: 'smooth'
+            })
+
+            // Update the current index
+            setCurrentIndex((prevIndex) => {
+                const newIndex = (prevIndex + cardIndex) % products.length
+                return newIndex >= 0 ? newIndex : products.length + newIndex
+            })
+        }
+    }
+
+    // Show navigation arrows only on desktop
+    const showLeftArrow = !isMobile && products.length > visibleCards && currentIndex > 0
+    // Always show right arrow on desktop as long as we have more than one product
+    const showRightArrow = !isMobile && products.length > 1
+
+    // Calculate card width percentage
+    const cardWidthPercentage = 100 / visibleCards
+
+    // If no products, show nothing
     if (products.length === 0) {
         return null
     }
 
     return (
-        <section className="px-4 py-5">
+        <section className="md:px-8 py-5 md:w-[95%]">
             <div className="flex items-center justify-between mb-3">
-                <h2 className="text-lg font-semibold ml-5">{title}</h2>
-                <Link href={categoryLink} className="text-sm text-gray-500 flex items-center">
-                    See all <ChevronRight className="h-4 w-4" />
+                <h2 className="font-medium text-[23px] mt-2 md:text-[25px] md:mb-6 ml-4 md:ml-4">{title}</h2>
+                <Link href={categoryLink} className="pr-4 underline underline-offset-3 md:pr-8 pb-1 text-sm text-gray-500 flex items-center">
+                    View all
                 </Link>
             </div>
 
@@ -110,8 +185,8 @@ export default function ProductListings({
                 {/* Left Navigation Arrow */}
                 {showLeftArrow && (
                     <button
-                        onClick={scrollPrev}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-gray-100 transition-all"
+                        onClick={navigatePrev}
+                        className="border border-black absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-gray-100 transition-all"
                         aria-label="Previous products"
                     >
                         <ChevronLeft className="h-5 w-5" />
@@ -119,13 +194,34 @@ export default function ProductListings({
                 )}
 
                 {/* Products Container */}
-                <div ref={containerRef} className="overflow-hidden">
+                <div
+                    ref={containerRef}
+                    className={`overflow-x-hidden ${isMobile ? "overflow-x-auto" : ""}`}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleDragEnd}
+                    onMouseLeave={handleDragEnd}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleDragEnd}
+                    style={{
+                        WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
+                        scrollbarWidth: 'none', // Hide scrollbar in Firefox
+                        msOverflowStyle: 'none', // Hide scrollbar in IE
+                    }}
+                >
                     <div
                         className="flex transition-transform duration-300 ease-in-out"
-                        style={{ transform: `translateX(-${scrollPosition}px)` }}
+                        style={{
+                            transform: isMobile ? 'none' : `translateX(-${currentIndex * cardWidthPercentage}%)`,
+                        }}
                     >
-                        {products.map((product) => (
-                            <div key={product._id} className="flex-shrink-0" style={{ width: `${100 / visibleCards}%` }}>
+                        {getVisibleProducts().map((product, index) => (
+                            <div
+                                key={`${product._id}-${index}`}
+                                className="flex-shrink-0"
+                                style={{ width: `${cardWidthPercentage}%` }}
+                            >
                                 <div className="px-2">
                                     <ProductCard
                                         id={product._id}
@@ -141,14 +237,22 @@ export default function ProductListings({
                     </div>
                 </div>
 
+                {/* Hide scrollbar with CSS */}
+                <style jsx global>{`
+                    /* Hide scrollbar for Chrome, Safari and Opera */
+                    div::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}</style>
+
                 {/* Right Navigation Arrow */}
                 {showRightArrow && (
                     <button
-                        onClick={scrollNext}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-gray-100 transition-all"
+                        onClick={navigateNext}
+                        className="border border-black absolute -right-0 top-[30%] -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-gray-100 transition-all"
                         aria-label="Next products"
                     >
-                        <ChevronRight className="h-5 w-5" />
+                        <ChevronRight className="h-8 w-8" />
                     </button>
                 )}
             </div>

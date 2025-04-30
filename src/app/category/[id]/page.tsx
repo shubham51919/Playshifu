@@ -14,7 +14,7 @@ export default async function CategoryPage({ params }: { params: { id: string } 
   if (!category) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold">Category not found</h1>
+        <h1 className="text-2xl font-medium">Category not found</h1>
         <Link href="/" className="text-blue-500 hover:underline flex items-center mt-4">
           <ChevronLeft className="h-4 w-4 mr-1" /> Back to home
         </Link>
@@ -28,7 +28,7 @@ export default async function CategoryPage({ params }: { params: { id: string } 
         <ChevronLeft className="h-4 w-4 mr-1" /> Back to home
       </Link>
 
-      <h1 className="text-3xl font-bold mb-6">{category.name}</h1>
+      <h1 className="text-3xl font-medium mb-6">{category.name}</h1>
       {category.description && <p className="text-gray-600 mb-8">{category.description}</p>}
 
       {products.length === 0 ? (

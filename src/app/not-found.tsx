@@ -7,7 +7,7 @@ export default function NotFound() {
             <div className="text-center max-w-md">
 
                 <div className="bg-white p-8 rounded-lg shadow-lg">
-                    <h1 className="text-4xl font-bold text-gray-800 mb-2">Under Construction</h1>
+                    <h1 className="text-4xl font-medium text-gray-800 mb-2">Under Construction</h1>
                     <div className="flex justify-center my-4">
                         <div className="h-2 w-24 bg-amber-400 rounded-full"></div>
                     </div>

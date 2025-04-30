@@ -24,11 +24,11 @@ export default function Footer() {
 
     return (
         <footer className="border-t border-gray-200 pt-8 pb-8">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto md:mx-25">
                 {/* Desktop Footer */}
-                <div className="hidden md:grid md:grid-cols-6 gap-3">
-                    {/* Join the PlayShifu Club */}
-                    <div className="col-span-1">
+                <div className="hidden md:grid md:grid-cols-12 gap-3">
+                    {/* Join the PlayShifu Club - 30% width */}
+                    <div className="col-span-4 ">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Join the PlayShifu Club</h3>
                         <p className="text-gray-600 mb-4">viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis</p>
                         <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Join the club</button>
@@ -43,7 +43,7 @@ export default function Footer() {
                     </div>
 
                     {/* Shop by category */}
-                    <div className="col-span-1">
+                    <div className="col-span-2">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Shop by category</h3>
                         <ul className="space-y-2">
                             <li>
@@ -90,7 +90,7 @@ export default function Footer() {
                     </div>
 
                     {/* Support */}
-                    <div className="col-span-1">
+                    <div className="col-span-2">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Support</h3>
                         <ul className="space-y-2">
                             <li>
@@ -112,7 +112,7 @@ export default function Footer() {
                     </div>
 
                     {/* Parents & Educators */}
-                    <div className="col-span-1">
+                    <div className="col-span-2">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Parents & Educators</h3>
                         <ul className="space-y-2">
                             <li>
@@ -196,15 +196,15 @@ export default function Footer() {
                 </div>
 
                 {/* Mobile Footer */}
-                <div className="md:hidden">
+                <div className="md:hidden px-4">
                     {/* Join the PlayShifu Club */}
-                    <div className="border-b border-gray-200 py-6">
+                    <div className="border-b border-gray-200 py-6 px-2">
                         <div className="flex">
                             <div className="w-1/2">
-                                <h3 className="text-xl font-medium text-gray-800">Join the PlayShifu club</h3>
+                                <h3 className="text-[22px] font-medium text-gray-800  px-2">Join the PlayShifu club</h3>
                             </div>
                             <div className="w-1/2">
-                                <p className="text-gray-600 mb-4">
+                                <p className="text-[12px] text-gray-600 mb-4">
                                     viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis
                                 </p>
                                 <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Join the club</button>
@@ -213,13 +213,13 @@ export default function Footer() {
                     </div>
 
                     {/* Need help */}
-                    <div className="border-b border-gray-200 py-6">
+                    <div className="border-b border-gray-200 py-6 px-2">
                         <div className="flex">
                             <div className="w-1/2">
-                                <h3 className="text-xl font-medium text-gray-800">Need help in something?</h3>
+                                <h3 className="text-[22px] font-medium text-gray-800">Need help in something?</h3>
                             </div>
                             <div className="w-1/2">
-                                <p className="text-gray-600 mb-4">
+                                <p className="text-[12px] text-gray-600 mb-4">
                                     viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis
                                 </p>
                                 <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Contact Us</button>
@@ -228,7 +228,7 @@ export default function Footer() {
                     </div>
 
                     {/* Shop by category */}
-                    <div className="border-b border-gray-200 py-4" onClick={() => toggleSection("shop")}>
+                    <div className="border-b border-gray-200 py-4 px-2" onClick={() => toggleSection("shop")}>
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-medium text-gray-800">Shop by category</h3>
                             <ChevronDown
@@ -282,7 +282,7 @@ export default function Footer() {
                     </div>
 
                     {/* Support */}
-                    <div className="border-b border-gray-200 py-4" onClick={() => toggleSection("support")}>
+                    <div className="border-b border-gray-200 py-4 px-2" onClick={() => toggleSection("support")}>
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-medium text-gray-800">Support</h3>
                             <ChevronDown
@@ -311,7 +311,7 @@ export default function Footer() {
                     </div>
 
                     {/* Parents & Educators */}
-                    <div className="border-b border-gray-200 py-4" onClick={() => toggleSection("parents")}>
+                    <div className="border-b border-gray-200 py-4 px-2" onClick={() => toggleSection("parents")}>
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-medium text-gray-800">Parents & Educators</h3>
                             <ChevronDown
@@ -340,7 +340,7 @@ export default function Footer() {
                     </div>
 
                     {/* Blog */}
-                    <div className="border-b border-gray-200 py-4" onClick={() => toggleSection("blog")}>
+                    <div className="border-b border-gray-200 py-4 px-2" onClick={() => toggleSection("blog")}>
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-medium text-gray-800">Blog</h3>
                             <ChevronDown
@@ -379,7 +379,7 @@ export default function Footer() {
                     </div>
 
                     {/* About Us */}
-                    <div className="border-b border-gray-200 py-4" onClick={() => toggleSection("about")}>
+                    <div className="border-b border-gray-200 py-4 px-2" onClick={() => toggleSection("about")}>
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-medium text-gray-800">About Us</h3>
                             <ChevronDown
@@ -414,8 +414,8 @@ export default function Footer() {
                 </div>
 
                 {/* Social Media and Payment Methods - shared between desktop and mobile */}
-                <div className="mt-12 border-t border-gray-200 pt-8">
-                    <div className="flex flex-col md:flex-row md:justify-between">
+                <div className="mt-6  border-gray-200 md:pt-8 flex justify-center items-center">
+                    <div className="flex flex-col md:flex-row md:justify-between gap-4">
                         <div className="flex items-center gap-4">
                             <h4 className="text-lg font-medium text-gray-800 ">Connect with us</h4>
                             <div className="flex space-x-4">
@@ -469,7 +469,7 @@ export default function Footer() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-4">
                             <Image src="/images/visa.png" alt="Visa" width={100} height={40} className="h-10 w-auto" />
                             <Image src="/images/maestro.png" alt="Maestro" width={100} height={40} className="h-10 w-auto" />
                             <Image src="/images/mastercard.png" alt="Mastercard" width={100} height={40} className="h-10 w-auto" />

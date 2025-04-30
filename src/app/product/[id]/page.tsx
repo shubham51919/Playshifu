@@ -11,7 +11,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
     if (!product) {
         return (
             <div className="container mx-auto px-4 py-8">
-                <h1 className="text-2xl font-bold">Product not found</h1>
+                <h1 className="text-2xl font-medium">Product not found</h1>
                 <Link href="/" className="text-blue-500 hover:underline flex items-center mt-4">
                     <ChevronLeft className="h-4 w-4 mr-1" /> Back to home
                 </Link>
@@ -49,7 +49,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
 
                 {/* Product Details */}
                 <div className="space-y-4">
-                    <h1 className="text-3xl font-bold">{product.title}</h1>
+                    <h1 className="text-3xl font-medium">{product.title}</h1>
 
                     <div className="flex items-center space-x-2">
                         <div className="flex">
@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
                             ))}
                         </div>
                         <span className="text-sm text-gray-600">
-                            {product.rating.toFixed(1)} ({Math.floor(Math.random() * 100) + 10} reviews)
+                            {product.rating} ({Math.floor(Math.random() * 100) + 10} reviews)
                         </span>
                     </div>
 
@@ -84,11 +84,11 @@ export default async function ProductPage({ params }: { params: { id: string } }
                     )}
 
                     <div className="flex items-center space-x-4 mt-4">
-                        <span className="text-3xl font-bold text-green-800">
-                            ${product.salePrice ? product.salePrice.toFixed(2) : product.price.toFixed(2)}
+                        <span className="text-3xl font-medium text-green-800">
+                            ${product.salePrice ? product.salePrice : product.price}
                         </span>
                         {product.salePrice && product.salePrice < product.price && (
-                            <span className="text-xl text-gray-500 line-through">${product.price.toFixed(2)}</span>
+                            <span className="text-xl text-gray-500 line-through">${product.price}</span>
                         )}
                     </div>
 
@@ -106,7 +106,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
             {/* Related Products */}
             {relatedProducts.length > 0 && (
                 <div className="mt-12">
-                    <h2 className="text-2xl font-bold mb-4">You may also like</h2>
+                    <h2 className="text-2xl font-medium mb-4">You may also like</h2>
                     <ProductListings products={relatedProducts} />
                 </div>
             )}

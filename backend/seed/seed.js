@@ -22,7 +22,7 @@ mongoose
     })
 
 // Sample data
-const ageGroups = [
+export const ageGroups = [
     {
         age: "0-2",
         color: "bg-[#822382]",
@@ -55,7 +55,7 @@ const ageGroups = [
     },
 ]
 
-const categories = [
+export const categories = [
     {
         name: "Problem Solving",
         description: "Toys that help develop problem-solving skills",
@@ -88,7 +88,7 @@ const categories = [
     },
 ]
 
-const products = [
+export const products = [
     {
         title: "Letters",
         description: "Educational letter blocks for early learning",
@@ -103,7 +103,7 @@ const products = [
         description: "Interactive globe with voice recognition",
         price: 39.99,
         salePrice: 29.99,
-        image: "/images/card.png",
+        image: "/images/product1.png",
         rating: 4.8,
         featured: true,
     },
@@ -112,7 +112,7 @@ const products = [
         description: "Set of educational puzzles for different age groups",
         price: 24.99,
         salePrice: 18.99,
-        image: "/images/card.png",
+        image: "/images/product2.png",
         rating: 4.7,
         featured: false,
     },
@@ -121,7 +121,7 @@ const products = [
         description: "Comprehensive STEM learning kit with experiments",
         price: 49.99,
         salePrice: 39.99,
-        image: "/images/card.png",
+        image: "/images/product3.png",
         rating: 4.9,
         featured: true,
     },
@@ -136,7 +136,7 @@ const products = [
     },
 ]
 
-const testimonials = [
+export const testimonials = [
     {
         username: "@reddysameera",
         text: "Just got the best Diwali gift for her son! What are you waiting for?",
@@ -147,27 +147,27 @@ const testimonials = [
     {
         username: "@johndoe",
         text: "My kids love these educational toys. They learn while having fun!",
-        image: "/images/review1.png",
+        image: "/images/review2.png",
         rating: 4,
         featured: true,
     },
     {
         username: "@parentof3",
         text: "These toys have been a game-changer for my children's development.",
-        image: "/images/review1.png",
+        image: "/images/review3.png",
         rating: 5,
         featured: true,
     },
     {
         username: "@teachermom",
         text: "As both a teacher and a parent, I highly recommend these educational toys.",
-        image: "/images/review1.png",
+        image: "/images/review4.png",
         rating: 5,
         featured: true,
     },
 ]
 
-const mediaFeatures = [
+export const mediaFeatures = [
     {
         title: "AS SEEN ON",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui tortor, fringilla ac mi quis",
@@ -194,7 +194,7 @@ const mediaFeatures = [
     },
 ]
 
-const awards = [
+export const awards = [
     {
         name: "Best Educational Toy",
         image: "/images/award1.png",
@@ -233,7 +233,7 @@ const awards = [
     },
 ]
 
-const banners = [
+export const banners = [
     {
         title: "Power up your child's skills with our super toys",
         buttonText: "Shop now",
@@ -247,7 +247,7 @@ const banners = [
     {
         title: "STEM toys that make learning fun",
         buttonText: "Explore STEM",
-        color: "bg-blue-200",
+        color: "bg-yellow-300",
         image: "/images/banner2.png",
         imageAlt: "Science and robotics kits",
         link: "/category/stem",
@@ -257,7 +257,7 @@ const banners = [
     {
         title: "Sensory toys for development",
         buttonText: "Discover more",
-        color: "bg-green-200",
+        color: "bg-yellow-300",
         image: "/images/banner2.png",
         imageAlt: "Sensory toys collection",
         link: "/category/sensory",
@@ -267,7 +267,7 @@ const banners = [
     {
         title: "New arrivals: Spring collection",
         buttonText: "See what's new",
-        color: "bg-pink-200",
+        color: "bg-yellow-300",
         image: "/images/banner2.png",
         imageAlt: "New spring toys",
         link: "/new-arrivals",
@@ -276,7 +276,7 @@ const banners = [
     },
 ]
 
-const partners = [
+export const partners = [
     {
         name: "Amazon",
         image: "/images/available1.png",
@@ -285,25 +285,25 @@ const partners = [
     },
     {
         name: "Walmart",
-        image: "/images/available1.png",
+        image: "/images/available2.png",
         link: "https://walmart.com",
         order: 2,
     },
     {
         name: "Target",
-        image: "/images/available1.png",
+        image: "/images/available3.png",
         link: "https://target.com",
         order: 3,
     },
     {
         name: "Toys R Us",
-        image: "/images/available1.png",
+        image: "/images/available4.png",
         link: "https://toysrus.com",
         order: 4,
     },
     {
         name: "Best Buy",
-        image: "/images/available1.png",
+        image: "/images/available5.png",
         link: "https://bestbuy.com",
         order: 5,
     },

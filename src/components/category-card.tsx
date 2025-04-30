@@ -25,7 +25,7 @@ export default function CategoryCard({ image, title, price, salePrice }: Categor
                 <div className="flex justify-between items-center mb-2">
                     <div>
                         <p className="text-gray-500 text-xs line-through">Now ${price.toFixed(2)}</p>
-                        <p className="font-bold text-sm">${salePrice.toFixed(2)}</p>
+                        <p className="font-medium text-sm">${salePrice.toFixed(2)}</p>
                     </div>
                 </div>
                 <Button className="w-full text-xs h-8 bg-[#FF6B00] hover:bg-[#E05F00]">Add to Cart</Button>
