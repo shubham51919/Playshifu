@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 interface BannerSlide {
     _id: string
@@ -51,13 +50,6 @@ export default function ToyShopCarousel({ slides = [] }: ToyShopCarouselProps) {
         return () => clearInterval(interval)
     }, [bannerSlides.length])
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev === bannerSlides.length - 1 ? 0 : prev + 1))
-    }
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev === 0 ? bannerSlides.length - 1 : prev - 1))
-    }
 
     return (
         <div className="flex flex-col gap-2">

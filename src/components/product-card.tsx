@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Heart, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 
 interface ProductCardProps {
     id: string
@@ -23,11 +22,11 @@ export default function ProductCard({
     rating,
     discount,
 }: ProductCardProps) {
-    const discountLabel =
-        discount ||
-        (salePrice && price > salePrice
-            ? `${Math.round(((price - salePrice) / price) * 100)}% OFF`
-            : null)
+    // const discountLabel =
+    //     discount ||
+    //     (salePrice && price > salePrice
+    //         ? `${Math.round(((price - salePrice) / price) * 100)}% OFF`
+    //         : null)
 
     return (
         <div className="w-full bg-white rounded-lg overflow-hidden md:w-[300px]">

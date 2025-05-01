@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Search, ShoppingCart, Heart, User, Menu, Star, ChevronRight, Calendar, Tag, Percent, LifeBuoy, Users, BookOpen, Info } from "lucide-react"
+import { Search, ShoppingCart, Heart, User, Menu, Calendar, Tag, Percent, LifeBuoy, Users, BookOpen, Info } from "lucide-react"
 import { Input } from "@/components/ui/input"
-import AgeCategory from "@/components/age-category"
 import ChatSupport from "@/components/chat-support"
 import ToyShopCarousel from "@/components/banner-carousel"
 import ProductListings from "@/components/product-listings"
 import Footer from "@/components/Footer"
 import TestimonialCarousel from "@/components/review-caroursel"
 import MediaFeatureSection from "@/components/featured"
-import {
-  getProducts,
-  getAgeGroups,
-  getAwards,
-  getPartners,
-  getBanners,
-  getTestimonials,
-  getMediaFeatures,
-} from "@/lib/api"
+
 import {
   ageGroupsData,
-  categoriesData,
   productsData,
   testimonialsData,
   mediaFeaturesData,

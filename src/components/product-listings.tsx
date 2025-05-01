@@ -44,9 +44,9 @@ export default function ProductListings({
     const containerRef = useRef<HTMLDivElement>(null)
 
     // Ensure we have enough products for the carousel to work properly
-    const extendedProducts = products.length > 0
-        ? [...products, ...products, ...products] // Triple the products array to ensure circular scrolling
-        : []
+    // const extendedProducts = products.length > 0
+    //     ? [...products, ...products, ...products] // Triple the products array to ensure circular scrolling
+    //     : []
 
     useEffect(() => {
         const handleResize = () => {
@@ -84,7 +84,7 @@ export default function ProductListings({
         const startIdx = ((currentIndex % products.length) + products.length) % products.length
 
         // Create a window of products that wraps around if needed
-        let visibleProducts = []
+        const visibleProducts = []
         for (let i = 0; i < displayCount; i++) {
             const idx = (startIdx + i) % products.length
             visibleProducts.push(products[idx])

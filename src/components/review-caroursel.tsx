@@ -85,7 +85,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
         const startIdx = ((currentIndex % reviewTestimonials.length) + reviewTestimonials.length) % reviewTestimonials.length
 
         // Create a window of testimonials that wraps around if needed
-        let visibleItems = []
+        const visibleItems = []
         for (let i = 0; i < displayCount; i++) {
             const idx = (startIdx + i) % reviewTestimonials.length
             visibleItems.push(reviewTestimonials[idx])

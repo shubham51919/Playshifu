@@ -12,8 +12,9 @@ export default function NotFound() {
                         <div className="h-2 w-24 bg-amber-400 rounded-full"></div>
                     </div>
                     <p className="text-gray-600 mb-6">
-                        We're working hard to build something awesome! This page is currently under construction and will be available soon.
+                        We&rsquo;re working hard to build something awesome! This page is currently under construction and will be available soon.
                     </p>
+
                     <Link
                         href="/"
                         className="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors inline-flex items-center"
