@@ -1,7 +1,7 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { MouseEvent, TouchEvent } from 'react';
+import type { MouseEvent, TouchEvent } from "react"
 interface Testimonial {
     _id: string
     username: string
@@ -51,8 +51,11 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
             const mobile = width < 640
             setIsMobile(mobile)
 
-            if (mobile) setVisibleCount(1.5) // Show 1.5 cards on mobile
+            if (mobile)
+                setVisibleCount(1.5) // Show 1.5 cards on mobile
             else if (width < 1024) setVisibleCount(2)
+            else if (width < 1400)
+                setVisibleCount(3.5) // Add a breakpoint for screens around 1355px
             else setVisibleCount(4.5)
 
             // Force re-render to ensure proper layout
@@ -64,8 +67,8 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
 
     useEffect(() => {
         updateVisibleCount()
-        window.addEventListener('resize', updateVisibleCount)
-        return () => window.removeEventListener('resize', updateVisibleCount)
+        window.addEventListener("resize", updateVisibleCount)
+        return () => window.removeEventListener("resize", updateVisibleCount)
     }, [])
 
     const nextSlide = () => {
@@ -82,7 +85,8 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
 
         // Add buffer items to ensure smooth circular scrolling
         const displayCount = Math.ceil(visibleCount) + 2
-        const startIdx = ((currentIndex % reviewTestimonials.length) + reviewTestimonials.length) % reviewTestimonials.length
+        const startIdx =
+            ((currentIndex % reviewTestimonials.length) + reviewTestimonials.length) % reviewTestimonials.length
 
         // Create a window of testimonials that wraps around if needed
         const visibleItems = []
@@ -142,7 +146,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
             // Smooth scroll to the nearest testimonial
             containerRef.current.scrollTo({
                 left: itemIndex * itemWidth,
-                behavior: 'smooth'
+                behavior: "smooth",
             })
 
             // Update the current index
@@ -154,14 +158,16 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
     }
 
     // Calculate testimonial width percentage
-    const testimonialWidthPercentage = 100 / visibleCount
+    const testimonialWidthPercentage = isMobile ? 55 : 100 / visibleCount
 
     // Get the testimonials to display
     const visibleTestimonials = getVisibleTestimonials()
 
     return (
         <div className="w-full px-0 px-4">
-            <h2 className="font-medium text-[23px] mt-2 md:text-[25px] md:mb-6 md:ml-4 ">What kids, parents and teachers love</h2>
+            <h2 className="font-medium text-[23px] mt-2 md:text-[25px] md:mb-6 md:ml-4 ">
+                What kids, parents and teachers love
+            </h2>
 
             <div className="relative">
                 <div className="flex justify-between items-center">
@@ -189,22 +195,24 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleDragEnd}
                         style={{
-                            WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
-                            scrollbarWidth: 'none', // Hide scrollbar in Firefox
-                            msOverflowStyle: 'none', // Hide scrollbar in IE
+                            WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
+                            scrollbarWidth: "none", // Hide scrollbar in Firefox
+                            msOverflowStyle: "none", // Hide scrollbar in IE
                         }}
                     >
                         <div
                             className="flex transition-transform duration-300 ease-in-out gap-4 md:gap-[40px]"
                             style={{
-                                transform: isMobile ? 'none' : `translateX(-${currentIndex * (100 / reviewTestimonials.length)}%)`,
+                                transform: isMobile ? "none" : `translateX(-${currentIndex * (100 / reviewTestimonials.length)}%)`,
                             }}
                         >
                             {visibleTestimonials.map((testimonial, index) => (
                                 <div
                                     key={`${testimonial._id}-${index}`}
                                     className={`flex-none p-2`}
-                                    style={isMobile ? { width: '55%' } : { width: `${testimonialWidthPercentage}%` }}
+                                    style={
+                                        isMobile ? { width: "55%" } : { width: `${testimonialWidthPercentage}%`, maxWidth: "350px" } // Add maxWidth
+                                    }
                                 >
                                     <div className="bg-white rounded-lg overflow-hidden shadow-md">
                                         <img
@@ -213,8 +221,9 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
                                             className="w-full h-70 object-cover p-4 rounded-[25px]"
                                         />
                                         <div className="p-3">
-                                            <span className=" text-[12px] "><span className="text-[#822382]">{testimonial.username}</span> {testimonial.text}</span>
-
+                                            <span className=" text-[12px] ">
+                                                <span className="text-[#822382]">{testimonial.username}</span> {testimonial.text}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

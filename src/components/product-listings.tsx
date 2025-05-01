@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { ChevronRight, ChevronLeft } from "lucide-react"
 import ProductCard from "./product-card"
-import { MouseEvent, TouchEvent } from 'react';
+import type { MouseEvent, TouchEvent } from "react"
 
 // Define the Product type
 interface Product {
@@ -61,6 +61,8 @@ export default function ProductListings({
                     setVisibleCards(2)
                 } else if (width < 1024) {
                     setVisibleCards(3)
+                } else if (width < 1400) {
+                    setVisibleCards(3.5) // Add a breakpoint for screens around 1355px
                 } else {
                     setVisibleCards(4)
                 }
@@ -149,7 +151,7 @@ export default function ProductListings({
             // Smooth scroll to the nearest card
             containerRef.current.scrollTo({
                 left: cardIndex * cardWidth,
-                behavior: 'smooth'
+                behavior: "smooth",
             })
 
             // Update the current index
@@ -177,7 +179,10 @@ export default function ProductListings({
         <section className="md:px-8 py-5 md:w-[95%]">
             <div className="flex items-center justify-between mb-3">
                 <h2 className="font-medium text-[23px] mt-2 md:text-[25px] md:mb-6 ml-4 md:ml-4">{title}</h2>
-                <Link href={categoryLink} className="pr-4 underline underline-offset-3 md:pr-8 pb-1 text-sm text-gray-500 flex items-center">
+                <Link
+                    href={categoryLink}
+                    className="pr-4 underline underline-offset-3 md:pr-8 pb-1 text-sm text-gray-500 flex items-center"
+                >
                     View all
                 </Link>
             </div>
@@ -206,24 +211,29 @@ export default function ProductListings({
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleDragEnd}
                     style={{
-                        WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
-                        scrollbarWidth: 'none', // Hide scrollbar in Firefox
-                        msOverflowStyle: 'none', // Hide scrollbar in IE
+                        WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
+                        scrollbarWidth: "none", // Hide scrollbar in Firefox
+                        msOverflowStyle: "none", // Hide scrollbar in IE
                     }}
                 >
                     <div
                         className="flex transition-transform duration-300 ease-in-out"
                         style={{
-                            transform: isMobile ? 'none' : `translateX(-${currentIndex * cardWidthPercentage}%)`,
+                            transform: isMobile ? "none" : `translateX(-${currentIndex * cardWidthPercentage}%)`,
                         }}
                     >
                         {getVisibleProducts().map((product, index) => (
                             <div
                                 key={`${product._id}-${index}`}
                                 className="flex-shrink-0"
-                                style={{ width: `${cardWidthPercentage}%` }}
+                                style={{
+                                    width: `${cardWidthPercentage}%`,
+                                    padding: "0 8px", // Add consistent padding to prevent overlap
+                                }}
                             >
-                                <div className="px-2">
+                                <div className="px-1">
+                                    {" "}
+                                    {/* Reduce horizontal padding */}
                                     <ProductCard
                                         id={product._id}
                                         image={product.image}

@@ -5,8 +5,8 @@ import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
 type ExpandedSections = {
-    [key: string]: boolean;
-};
+    [key: string]: boolean
+}
 export default function Footer() {
     const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
         shop: false,
@@ -27,11 +27,11 @@ export default function Footer() {
 
     return (
         <footer className="border-t border-gray-200 pt-8 pb-8">
-            <div className="container mx-auto md:mx-25">
+            <div className="container mx-auto ">
                 {/* Desktop Footer */}
-                <div className="hidden md:grid md:grid-cols-12 gap-3">
+                <div className="hidden md:grid md:grid-cols-12 gap-3 md:px-4 lg:px-0">
                     {/* Join the PlayShifu Club - 30% width */}
-                    <div className="col-span-4 ">
+                    <div className="col-span-4 pr-4">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Join the PlayShifu Club</h3>
                         <p className="text-gray-600 mb-4">viverra ullamcorper Quisque Morbi dolor In efficitur. Nullam venenatis</p>
                         <button className="bg-[#822382] text-white rounded-full px-6 py-2 font-medium">Join the club</button>
@@ -48,7 +48,7 @@ export default function Footer() {
                     {/* Shop by category */}
                     <div className="col-span-2">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Shop by category</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-sm lg:text-base">
                             <li>
                                 <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Problem Solving
@@ -95,7 +95,7 @@ export default function Footer() {
                     {/* Support */}
                     <div className="col-span-2">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Support</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-sm lg:text-base">
                             <li>
                                 <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Device Compatibility
@@ -117,7 +117,7 @@ export default function Footer() {
                     {/* Parents & Educators */}
                     <div className="col-span-2">
                         <h3 className="text-lg font-medium text-gray-800 mb-4">Parents & Educators</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-sm lg:text-base">
                             <li>
                                 <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                     Free E- Storybooks
@@ -140,7 +140,7 @@ export default function Footer() {
                     <div className="col-span-1">
                         <div>
                             <h3 className="text-lg font-medium text-gray-800 mb-4">Blog</h3>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 text-sm lg:text-base">
                                 <li>
                                     <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Creative Hub
@@ -172,7 +172,7 @@ export default function Footer() {
                     <div className="col-span-1">
                         <div>
                             <h3 className="text-lg font-medium text-gray-800 mb-4">About us</h3>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 text-sm lg:text-base">
                                 <li>
                                     <Link href="#" className="text-gray-600 hover:text-[#822382]">
                                         Company
@@ -417,10 +417,10 @@ export default function Footer() {
                 </div>
 
                 {/* Social Media and Payment Methods - shared between desktop and mobile */}
-                <div className="mt-6  border-gray-200 md:pt-8 flex justify-center items-center">
-                    <div className="flex flex-col md:flex-row md:justify-between gap-4">
+                <div className="mt-6 border-gray-200 md:pt-8 flex justify-center items-center w-full">
+                    <div className="flex flex-col md:flex-row md:justify-between gap-4 w-full px-4">
                         <div className="flex items-center gap-4">
-                            <h4 className="text-lg font-medium text-gray-800 ">Connect with us</h4>
+                            <h4 className="text-base lg:text-lg font-medium text-gray-800">Connect with us</h4>
                             <div className="flex space-x-4">
                                 <Link href="#" aria-label="Facebook">
                                     <div className="w-6 h-6">
@@ -472,7 +472,7 @@ export default function Footer() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-4 justify-center md:justify-end">
                             <Image src="/images/visa.png" alt="Visa" width={100} height={40} className="h-10 w-auto" />
                             <Image src="/images/maestro.png" alt="Maestro" width={100} height={40} className="h-10 w-auto" />
                             <Image src="/images/mastercard.png" alt="Mastercard" width={100} height={40} className="h-10 w-auto" />

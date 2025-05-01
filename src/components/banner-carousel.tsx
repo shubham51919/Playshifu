@@ -50,11 +50,14 @@ export default function ToyShopCarousel({ slides = [] }: ToyShopCarouselProps) {
         return () => clearInterval(interval)
     }, [bannerSlides.length])
 
-
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 overflow-hidden">
+            {" "}
+            {/* Add overflow-hidden */}
             {/* Carousel slider */}
-            <div className="relative h-[25vh] sm:h-[25vh] md:h-[40vh] lg:h-[55vh] overflow-hidden ">
+            <div className="relative h-[25vh] sm:h-[25vh] md:h-[35vh] lg:h-[55vh] overflow-hidden">
+                {" "}
+                {/* Adjust medium screen height */}
                 {bannerSlides.map((slide, index) => (
                     <div
                         key={slide._id || index}
@@ -63,37 +66,23 @@ export default function ToyShopCarousel({ slides = [] }: ToyShopCarouselProps) {
                        ${slide.color} flex items-center`}
                     >
                         <img
-                            src={slide.image}
+                            src={slide.image || "/placeholder.svg"}
                             alt={`Slide ${index + 1}`}
-                            className="w-full h-full cover "
-                        />
+                            className="w-full h-full object-cover"
+                        />{" "}
+                        {/* Add object-cover */}
                     </div>
                 ))}
-
-                {/* Navigation buttons */}
-                {/* <button
-                    onClick={prevSlide}
-                    className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full hover:bg-opacity-100 transition-all"
-                    aria-label="Previous slide"
-                >
-                    <ChevronLeft size={16} className="sm:w-5 sm:h-5" />
-                </button>
-                <button
-                    onClick={nextSlide}
-                    className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full hover:bg-opacity-100 transition-all"
-                    aria-label="Next slide"
-                >
-                    <ChevronRight size={16} className="sm:w-5 sm:h-5" />
-                </button> */}
             </div>
-
             {/* Indicator dots */}
             <div className="flex justify-center space-x-1 sm:space-x-2 md:mt-6 mt-1 md:gap-2 gap-1">
                 {bannerSlides.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`cursor-pointer rounded-full transition-all ${currentSlide === index ? "md:h-2.5 bg-[#822382] md:w-2.5 h-2 w-2" : "md:h-2.5 border border-[#822382] md:w-2.5 w-2 h-2"
+                        className={`cursor-pointer rounded-full transition-all ${currentSlide === index
+                            ? "md:h-2.5 bg-[#822382] md:w-2.5 h-2 w-2"
+                            : "md:h-2.5 border border-[#822382] md:w-2.5 w-2 h-2"
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
