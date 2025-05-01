@@ -4,8 +4,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
+type ExpandedSections = {
+    [key: string]: boolean;
+};
 export default function Footer() {
-    const [expandedSections, setExpandedSections] = useState({
+    const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
         shop: false,
         support: false,
         parents: false,
@@ -13,7 +16,7 @@ export default function Footer() {
         about: false,
     })
 
-    const toggleSection = (section) => {
+    const toggleSection = (section: string) => {
         if (typeof window !== "undefined" && window.innerWidth < 768) {
             setExpandedSections({
                 ...expandedSections,

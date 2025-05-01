@@ -1,11 +1,19 @@
 "use client"
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Play } from "lucide-react"
-
-export default function MediaFeatureSection({ mediaFeatures = [] }) {
+import { ChevronLeft, ChevronRight } from "lucide-react"
+type MediaFeature = {
+    _id: string;
+    title: string;
+    description: string;
+    videoThumbnail: string;
+    videoUrl: string;
+    networks: string[];
+    featured: boolean;
+};
+const MediaFeatureSection = ({ mediaFeatures }: { mediaFeatures: MediaFeature[] }) => {
     const [current, setCurrent] = useState(0)
-    const defaults = []
-    const items = mediaFeatures.length ? mediaFeatures : defaults
+
+    const items = mediaFeatures.length ? mediaFeatures : []
     const prev = () => setCurrent(i => i === 0 ? items.length - 1 : i - 1)
     const next = () => setCurrent(i => (i + 1) % items.length)
     const { videoThumbnail, title, description, networks } = items[current]
@@ -78,3 +86,5 @@ export default function MediaFeatureSection({ mediaFeatures = [] }) {
         </div>
     )
 }
+
+export default MediaFeatureSection;

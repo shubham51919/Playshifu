@@ -1,7 +1,7 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-
+import { MouseEvent, TouchEvent } from 'react';
 interface Testimonial {
     _id: string
     username: string
@@ -95,7 +95,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
     }
 
     // Touch/mouse event handlers for mobile sliding
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: MouseEvent) => {
         if (!isMobile || !containerRef.current) return
 
         setIsDragging(true)
@@ -103,7 +103,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
         setScrollLeft(containerRef.current.scrollLeft)
     }
 
-    const handleTouchStart = (e) => {
+    const handleTouchStart = (e: TouchEvent) => {
         if (!isMobile || !containerRef.current) return
 
         setIsDragging(true)
@@ -111,7 +111,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
         setScrollLeft(containerRef.current.scrollLeft)
     }
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
         if (!isDragging || !isMobile || !containerRef.current) return
 
         e.preventDefault()
@@ -120,7 +120,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
         containerRef.current.scrollLeft = scrollLeft - walk
     }
 
-    const handleTouchMove = (e) => {
+    const handleTouchMove = (e: TouchEvent) => {
         if (!isDragging || !isMobile || !containerRef.current) return
 
         const x = e.touches[0].pageX - containerRef.current.offsetLeft

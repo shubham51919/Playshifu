@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { ChevronRight, ChevronLeft } from "lucide-react"
 import ProductCard from "./product-card"
+import { MouseEvent, TouchEvent } from 'react';
 
 // Define the Product type
 interface Product {
@@ -101,7 +102,7 @@ export default function ProductListings({
     }
 
     // Touch/mouse event handlers for mobile sliding
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: MouseEvent) => {
         if (!isMobile || !containerRef.current) return
 
         setIsDragging(true)
@@ -109,7 +110,7 @@ export default function ProductListings({
         setScrollLeft(containerRef.current.scrollLeft)
     }
 
-    const handleTouchStart = (e) => {
+    const handleTouchStart = (e: TouchEvent) => {
         if (!isMobile || !containerRef.current) return
 
         setIsDragging(true)
@@ -117,7 +118,7 @@ export default function ProductListings({
         setScrollLeft(containerRef.current.scrollLeft)
     }
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
         if (!isDragging || !isMobile || !containerRef.current) return
 
         e.preventDefault()
@@ -126,7 +127,7 @@ export default function ProductListings({
         containerRef.current.scrollLeft = scrollLeft - walk
     }
 
-    const handleTouchMove = (e) => {
+    const handleTouchMove = (e: TouchEvent) => {
         if (!isDragging || !isMobile || !containerRef.current) return
 
         const x = e.touches[0].pageX - containerRef.current.offsetLeft

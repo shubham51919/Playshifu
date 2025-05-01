@@ -1,4 +1,10 @@
-export default function CustomerSupportBanner({ image, title, subTitle, btnText }) {
+interface CustomerSupportBannerProps {
+    image: string;
+    title: string;
+    subTitle: string;
+    btnText: string;
+}
+export default function CustomerSupportBanner({ image, title, subTitle, btnText }: CustomerSupportBannerProps) {
     return (
         <div className="flex md:h-[200px] h-[120px] w-11/12 max-w-md mx-auto rounded-lg overflow-hidden shadow-md sm:flex-row sm:w-full sm:max-w-none">
             {/* Image section */}
