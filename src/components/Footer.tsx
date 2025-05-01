@@ -477,7 +477,7 @@ export default function Footer() {
                             <Image src="/images/maestro.png" alt="Maestro" width={100} height={40} className="h-10 w-auto" />
                             <Image src="/images/mastercard.png" alt="Mastercard" width={100} height={40} className="h-10 w-auto" />
                             <Image
-                                src="/images/americanexp.png"
+                                src="/images/AmericanExp.png"
                                 alt="American Express"
                                 width={100}
                                 height={40}
